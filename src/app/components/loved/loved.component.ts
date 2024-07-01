@@ -6,7 +6,6 @@ import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@ang
   styleUrls: ['./loved.component.scss']
 })
 export class LovedComponent implements AfterViewInit {
-
   @ViewChild('imageElement', { static: false })
   imageElement!: ElementRef;
 
@@ -60,11 +59,29 @@ export class LovedComponent implements AfterViewInit {
           maxFrequency = colorFrequency[color];
         }
       }
-      
+
       if (pixelData != null) {
         var darkenedColor = `rgba(${pixelData[0]}, ${pixelData[1]}, ${pixelData[2]}, 0.6)`;
         document.documentElement.style.setProperty('--custom-bg-color', darkenedColor);
       }
     }
   };
+
+
+  /*onScroll($event: Event) {
+    const target = $event.target as HTMLElement;
+    const scrollPosition = target.scrollTop;
+    const actionsElement = document.querySelector('.actions');
+    const trackElement = document.querySelector('.track');
+
+    if(scrollPosition >= 300){
+      actionsElement?.classList.add('scrolled');
+      trackElement?.classList.add('scrolled');
+    }
+    else {
+      actionsElement?.classList.remove('scrolled');
+      trackElement?.classList.remove('scrolled');
+    }
+  }*/
+
 }
